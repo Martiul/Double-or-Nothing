@@ -1,0 +1,30 @@
+import React from 'react';
+import {Card} from './Card'
+import './css/Board.css';
+import './css/common.css';
+import * as Constants from './constants';
+
+
+function Board(props) {
+    // TODO: not show during bet phase?
+    let handItems = [];
+    for (let i = 0; i < props.hand.length; i++) {
+        const card = props.hand[i];
+        handItems.push(<Card 
+            key={i}
+            suit={card.suit} 
+            value={card.value}
+            matching={card.matching}
+            selected={props.phase === Constants.PHASE.SWAP? card.selected: false}
+            onClick={props.phase === Constants.PHASE.SWAP? () => props.handleCardClick(i): () => null} 
+            image='none'/>
+        )
+    }
+    return (
+        <div className="Board">
+            {handItems}
+        </div>
+    )
+}
+
+export default Board
