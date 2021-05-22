@@ -1,6 +1,6 @@
 .Board {    
     min-width:1000px;
-    min-height: 300px;
+    min-height: 400px;
     text-align: center;
     display: flex;
     justify-content: center;

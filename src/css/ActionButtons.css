@@ -1,0 +1,22 @@
+.ActionButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 100px;
+    min-height: 100px;
+    height: 100%;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.ActionButtons button {
+    background-color: aquamarine;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.ActionButtons button:hover {
+    background-color: cadetblue;
+}

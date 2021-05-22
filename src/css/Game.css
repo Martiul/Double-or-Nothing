@@ -1,3 +1,9 @@
 .Game {
     border: solid 3px #FFFFFF;
 }
+
+.Bottom {
+    display: flex;    
+    justify-content: space-between;
+    background-color: #AAAAAA;
+}

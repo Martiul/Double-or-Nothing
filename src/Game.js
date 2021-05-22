@@ -7,7 +7,7 @@ import ActionButtons from './ActionButtons';
 import ScoreBoard from './ScoreBoard';
 import {evaluateHand, HAND} from './Poker';
 import {HAND_SIZE, PHASE, PHASE_TEXT, SELECTION, MAX_DOUBLES} from './constants';
-import './Game';
+import './css/Game.css';
 
 class Game extends React.Component {
     constructor(props) {
@@ -131,6 +131,7 @@ class Game extends React.Component {
             phase: PHASE.SWAP,
             statusText: PHASE_TEXT[PHASE.SWAP],
             totalChips: this.state.totalChips - this.state.bet,
+            numberOfDoubles: 0
         });
         this.initializeDeck(this.initializeHand);
     }
@@ -243,7 +244,7 @@ class Game extends React.Component {
         {
             if (this.state.numberOfDoubles+1 >= MAX_DOUBLES) {
                 this.setState({
-                    totalChips: this.state.totalChips + this.state.bet.setState,
+                    totalChips: this.state.totalChips + this.state.bet,
                     numberOfDoubles: 0,
                     statusText: "Congratulations, you won 10 times!"
                 });
@@ -274,26 +275,34 @@ class Game extends React.Component {
     render() {
         return (
             <div className="Game"> 
-                <ScoringTable/>
-                <ScoreBoard
-                    totalChips={this.state.totalChips}
-                    bet={this.state.bet}
-                />
-                <TextBox statusText={this.state.statusText}/>
+                <div className="Top">
+                    <ScoringTable/>
+                    <ScoreBoard
+                        totalChips={this.state.totalChips}
+                        bet={this.state.bet}
+                    />
+                </div>
                 <Board 
                     hand={this.state.hand} 
                     phase={this.state.phase}
                     handleCardClick={this.handleCardClick}
                 />
-                <ActionButtons 
-                    phase={this.state.phase}
-                    betPhase={this.betPhase}
-                    swapPhase={this.swapPhase}
-                    evaluationPhase={this.evaluationPhase}
-                    doublePhase={this.doublePhase}
-                    chooseLowHigh={this.chooseLowHigh}
-                    resetGame={this.resetGame}
-                />
+                <div className="Bottom">
+                   
+                        <TextBox statusText={this.state.statusText}/>
+                   
+                        <ActionButtons 
+                            phase={this.state.phase}
+                            betPhase={this.betPhase}
+                            swapPhase={this.swapPhase}
+                            evaluationPhase={this.evaluationPhase}
+                            doublePhase={this.doublePhase}
+                            chooseLowHigh={this.chooseLowHigh}
+                            resetGame={this.resetGame}
+                        />
+                   
+                        
+                </div>
             </div>
         );
     }

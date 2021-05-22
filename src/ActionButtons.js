@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Constants from './constants';
+import './css/ActionButtons.css';
 
 function ActionButtons(props) {
     let displayedButtons;
@@ -16,7 +17,7 @@ function ActionButtons(props) {
         case Constants.PHASE.EVALUATION_WIN:
             displayedButtons = [
                 <button onClick={props.doublePhase}> Double </button>,
-                <button onClick={props.betPhase}> Not Double </button>
+                <button onClick={props.betPhase}> No </button>
             ];
             break;
         case Constants.PHASE.EVALUATION_LOSE:
@@ -48,7 +49,7 @@ function ActionButtons(props) {
     }
 
     return (
-        <div>
+        <div className="ActionButtons">
             {displayedButtons}
         </div>
     )
