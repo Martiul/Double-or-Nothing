@@ -1,33 +1,37 @@
 // import logo from './logo.svg';
 import React from 'react';
 import './css/App.css';
-import Game from './Game'
-import Tutorial from './Tutorial'
+import Game from './Game';
+import Tutorial from './Tutorial';
+import StartScreen from './StartScreen';
+import {VIEW} from './constants';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {view: 'game'};
-    this.showGameView = this.showGameView.bind(this);
-    this.showHelpView = this.showHelpView.bind(this);
+    this.state = {view: VIEW.START};
+    this.changeView = this.changeView.bind(this);
   }
 
-  showGameView() {
-    // TODO: use enum
-    this.setState({view: 'game'});
-  }
-
-  showHelpView() {
-    this.setState({view: 'help'})
+  changeView(newView) {
+    this.setState({view: newView});
   }
 
   render() {
     const currentView = this.state.view;
     let viewComponent
-    if (currentView === 'game') {
-      viewComponent = <Game></Game>;
-    } else {
-      viewComponent = <Tutorial></Tutorial>
+    switch (currentView) {
+      case VIEW.START:
+        viewComponent = <StartScreen changeView={this.changeView}></StartScreen>
+        break;
+      case VIEW.GAME:
+        viewComponent = <Game changeView={this.changeView}></Game>;
+        break;
+      case VIEW.TUTORIAL:
+        viewComponent = <Tutorial changeView={this.changeView}></Tutorial>
+        break;
+      default:
+        console.log(`Invalid view: ${currentView}`);
     }
     return (
       <div className="App">

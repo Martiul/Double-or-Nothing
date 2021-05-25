@@ -1,9 +1,9 @@
 import React from 'react';
-import './css/TextBox.css';
+import './css/text-box.css';
 
 function TextBox(props) {
     return (
-        <div className="TextBox">
+        <div className="text-box">
             <p>{props.statusText}</p>
         </div>
     )

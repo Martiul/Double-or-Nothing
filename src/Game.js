@@ -6,15 +6,15 @@ import TextBox from './TextBox';
 import ActionButtons from './ActionButtons';
 import ScoreBoard from './ScoreBoard';
 import {evaluateHand, HAND} from './Poker';
-import {HAND_SIZE, PHASE, PHASE_TEXT, SELECTION, MAX_DOUBLES} from './constants';
-import './css/Game.css';
+import {HAND_SIZE, PHASE, PHASE_TEXT, SELECTION, MAX_DOUBLES, VIEW} from './constants';
+import './css/game.css';
 
 class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            phase: PHASE.START,
-            statusText: PHASE_TEXT[PHASE.START],
+            phase: PHASE.BET,
+            statusText: PHASE_TEXT[PHASE.BET],
             totalChips: 1000,
             bet: 0,
             numberOfDoubles: 0,
@@ -193,14 +193,15 @@ class Game extends React.Component {
 
     resetGame() {
         this.setState({
-            phase: PHASE.START,
-            statusText: PHASE_TEXT[PHASE.START],
+            phase: PHASE.BET,
+            statusText: PHASE_TEXT[PHASE.BET],
             totalChips: 1000,
             bet: 0,
             numberOfDoubles: 0,
             hand: [],
             deck: []
         })
+        this.props.changeView(VIEW.START);
     }
 
     doublePhase() {
@@ -274,8 +275,8 @@ class Game extends React.Component {
 
     render() {
         return (
-            <div className="Game"> 
-                <div className="Top">
+            <div className="game"> 
+                <div className="top">
                     <ScoringTable/>
                     <ScoreBoard
                         totalChips={this.state.totalChips}
@@ -287,7 +288,7 @@ class Game extends React.Component {
                     phase={this.state.phase}
                     handleCardClick={this.handleCardClick}
                 />
-                <div className="Bottom">
+                <div className="bottom">
                    
                         <TextBox statusText={this.state.statusText}/>
                    

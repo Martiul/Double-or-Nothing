@@ -1,7 +1,6 @@
 import React from 'react';
 import {Card} from './Card'
-import './css/Board.css';
-import './css/common.css';
+import './css/board.css';
 import * as Constants from './constants';
 
 
@@ -21,7 +20,7 @@ function Board(props) {
         )
     }
     return (
-        <div className="Board">
+        <div className="board">
             {handItems}
         </div>
     )

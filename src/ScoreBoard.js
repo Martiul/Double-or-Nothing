@@ -1,10 +1,9 @@
 import React from 'react';
-import './css/ScoreBoard.css';
-import './css/common.css';
+import './css/score-board.css';
 
 function ScoreBoard(props) {
     return (
-        <div className="ScoreBoard gameBox">
+        <div className="score-board game-box">
             <table>
                 <tr>Total Chips: {props.totalChips}</tr>
                 <tr>Bet: {props.bet}</tr>

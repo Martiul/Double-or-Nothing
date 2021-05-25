@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/Card.css';
+import './css/card.css';
 
 const SUIT = {
     SPADE: "spade",
@@ -29,11 +29,11 @@ const VALUE = {
 
 function Card(props) {
     return (
-        <div className="Card">
-            <div className="Selector" onClick={props.onClick}>
+        <div className="card">
+            <div className="selector" onClick={props.onClick}>
                 <h3> {props.selected? 'HOLD' : ''} </h3>
             </div>
-            <div className="CardBody" data-matching={props.matching? 'true': 'false'} onClick={props.onClick}>
+            <div className="card-body" data-matching={props.matching? 'true': 'false'} onClick={props.onClick}>
                 <h4>{props.suit}</h4>
                 <h4>{props.value}</h4>
                 {/* <h4>{props.image}</h4> */}

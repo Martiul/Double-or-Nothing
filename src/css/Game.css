@@ -1,9 +1,9 @@
-.Game {
+.game {
     border: solid 3px #FFFFFF;
 }
 
-.Bottom {
+.bottom {
     display: flex;    
     justify-content: space-between;
-    background-color: #AAAAAA;
+    min-width: 150px;
 }

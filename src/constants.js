@@ -1,3 +1,9 @@
+export const VIEW = {
+    START: "Start",
+    GAME: "Game",
+    TUTORIAL: "Tutorial"
+};
+
 export const HAND_SIZE = 5;
 export const PHASE = {
     START: "Start",
@@ -12,7 +18,6 @@ export const PHASE = {
 };
 
 export const PHASE_TEXT = {
-    [PHASE.START]: "Would you like to see the tutorial?",
     [PHASE.BET]: "Enter your bet",
     [PHASE.SWAP]: "Choose which cards to hold or swap",
     [PHASE.EVALUATION_LOSE]: "Nothing. Would you like to play again?",

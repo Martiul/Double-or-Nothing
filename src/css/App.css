@@ -1,4 +1,10 @@
+div {
+  max-width: inherit;
+  max-height: inherit;
+}
+
 .App {
+  background-color: #282c34;
   text-align: center;
 }
 
@@ -14,7 +20,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,6 +31,31 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.button {
+  border: 3px solid white;
+  border-radius: 0.5em;
+  background-color: transparent;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  color: white;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-box {
+  border: solid 3px #FFFFFF;
 }
 
 @keyframes App-logo-spin {

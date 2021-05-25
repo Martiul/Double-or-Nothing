@@ -1,6 +1,5 @@
 import React from 'react';
-import './css/ScoringTable.css';
-import './css/common.css';
+import './css/scoring-table.css';
 import {HAND} from './Poker';
 
 function ScoringTable() {
@@ -14,7 +13,7 @@ function ScoringTable() {
         );
     }
     return (
-        <div className="ScoringTable gameBox">
+        <div className="scoring-table game-box">
             <p> ScoringTable </p>
             <table>
                 {tableRows}

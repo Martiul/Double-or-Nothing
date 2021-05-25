@@ -1,4 +1,4 @@
-.ActionButtons {
+/* .action-buttons {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,13 +10,13 @@
     padding-right: 20px;
 }
 
-.ActionButtons button {
+.action-buttons button {
     background-color: aquamarine;
     padding: 10px;
     cursor: pointer;
     width: 100%;
 }
 
-.ActionButtons button:hover {
+.action-buttons button:hover {
     background-color: cadetblue;
-}
+} */
