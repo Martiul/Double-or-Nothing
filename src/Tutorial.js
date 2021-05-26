@@ -1,5 +1,5 @@
 import React from 'react';
-import scoring from './scoring.png';
+import scoring from './assets/scoring.png';
 import { VIEW } from './constants';
 import './css/tutorial.css';
 

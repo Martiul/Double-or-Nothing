@@ -1,6 +1,6 @@
 # Vesperia Poker
 
-A clone of the Poker mini-game from Tales of Vesperia
+A clone of the Poker mini-game from Tales of Vesperia. View it [here](https://martiul.github.io/Vesperia-Poker/) on Github Pages.
 
 ## Available Scripts
 
