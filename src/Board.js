@@ -14,6 +14,7 @@ function Board(props) {
             suit={card.suit} 
             value={card.value}
             matching={card.matching}
+            img={card.img}
             selected={props.phase === Constants.PHASE.SWAP? card.selected: false}
             onClick={props.phase === Constants.PHASE.SWAP? () => props.handleCardClick(i): () => null} 
             image='none'/>

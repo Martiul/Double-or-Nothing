@@ -1,5 +1,5 @@
 .board {    
-    min-width:1000px;
+    min-width: 100%;
     min-height: 400px;
     text-align: center;
     display: flex;

@@ -37,7 +37,7 @@ div {
   border: 3px solid white;
   border-radius: 0.5em;
   background-color: transparent;
-  padding: 15px 32px;
+  padding: 15px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -45,6 +45,7 @@ div {
   margin: 4px 2px;
   cursor: pointer;
   color: white;
+  width: 150px;
 }
 
 .vertical {
@@ -55,7 +56,17 @@ div {
 }
 
 .game-box {
+  padding: 20px;
   border: solid 3px #FFFFFF;
+  margin: 20px;
+}
+
+.right-padding {
+  padding-right: 10px;
+}
+
+.left-padding {
+  padding-left: 10px;
 }
 
 @keyframes App-logo-spin {

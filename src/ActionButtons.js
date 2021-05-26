@@ -22,8 +22,8 @@ function ActionButtons(props) {
             break;
         case Constants.PHASE.EVALUATION_LOSE:
             displayedButtons = [
-                <button class="button" onClick={props.betPhase}> Yes </button>,
-                <button class="button" onClick={props.resetGame}> No </button>
+                <button class="button" onClick={props.betPhase}> Keep Playing </button>,
+                <button class="button" onClick={props.resetGame}> Quit Game </button>
             ];
             break;
         case Constants.PHASE.DOUBLE:
@@ -40,8 +40,8 @@ function ActionButtons(props) {
             break;
         case Constants.PHASE.DOUBLE_LOSE:
             displayedButtons = [
-                <button class="button" onClick={props.betPhase}> Play Again </button>,
-                <button class="button" onClick={props.resetGame}> Reset </button>
+                <button class="button" onClick={props.betPhase}> Keep Playing </button>,
+                <button class="button" onClick={props.resetGame}> Quit Game </button>
             ];
             break;
         default:
@@ -49,7 +49,7 @@ function ActionButtons(props) {
     }
 
     return (
-        <div class="vertical">
+        <div class="vertical action-buttons">
             {displayedButtons}
         </div>
     )

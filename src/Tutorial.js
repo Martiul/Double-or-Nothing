@@ -13,7 +13,7 @@ function Tutorial(props) {
                 </li>
                 <li>A deck of 54 cards will be used. (52 cards + 2 jokers)</li>
                 <li>Select card(s) to be exchanged from your hand.</li>
-                <li>You can double up once you have a poker hand</li>
+                <li>You can double up once you have a poker hand.</li>
                 <li>Doubling up is when you guess whether the next card will be
                 higher or lower than the last card dealt. Get it right, and you'll double your winnings!
                 </li>
@@ -21,7 +21,7 @@ function Tutorial(props) {
                 <li>The value of the cards when doubling up is the same as in poker.</li>
             </ul>
             <img id="scoring-img" src={scoring} alt="scoring" />
-            <button onClick={() => props.changeView(VIEW.START)}>Back</button>
+            <button class="button" onClick={() => props.changeView(VIEW.START)}>Back</button>
         </div>
     );
 }

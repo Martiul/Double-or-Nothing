@@ -10,10 +10,16 @@
     min-height: 100px;
 }
 
-.card-body {    
-    border: 3px solid #000000;
+
+.card-img {
+    width: 90%;
+    height: 100%;
 }
 
-.card-body[data-matching='true'] {
-    border: 3px solid #ff0000;
+.card-img[data-matching='true'] {
+    border: 6px solid #ff0000;
+}
+
+.card-img[data-matching='false'] {
+    border: 6px solid transparent;
 }

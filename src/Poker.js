@@ -85,10 +85,14 @@ function getCounts(hand) {
 function findOfAKind(hand, number) {
     const counts = getCounts(hand);
     let matches = [];
-    for (let value = VALUE.KING; value >= 0; value--) {
-        if (counts[value] + counts[VALUE.JOKER] >= number) {
+    for (let value = VALUE.ACE_ALTERNATIVE; value >= 0; value--) {
+        let testingValue = value;
+        if (value === VALUE.ACE_ALTERNATIVE) {
+            testingValue = VALUE.ACE;
+        }
+        if (counts[testingValue] + counts[VALUE.JOKER] >= number) {
             hand.forEach((c, idx) => {
-                if (matches.length < number && (c.value === value || c.value === VALUE.JOKER)) {
+                if (matches.length < number && (c.value === testingValue || c.value === VALUE.JOKER)) {
                     matches.push(idx);
                 }
             });

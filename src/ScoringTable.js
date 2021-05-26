@@ -1,5 +1,6 @@
 import React from 'react';
 import './css/scoring-table.css';
+import './css/App.css';
 import {HAND} from './Poker';
 
 function ScoringTable() {
@@ -7,14 +8,13 @@ function ScoringTable() {
     for (const [k, v] of Object.entries(HAND)) {
         tableRows.push(
             <tr key={k}>
-                <td>{v.displayText}</td>
-                <td>x{v.multiplier}</td>
+                <td className="right-padding">{v.displayText}</td>
+                <td className="left-padding">x{v.multiplier}</td>
             </tr>
         );
     }
     return (
         <div className="scoring-table game-box">
-            <p> ScoringTable </p>
             <table>
                 {tableRows}
             </table>

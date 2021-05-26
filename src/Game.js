@@ -1,7 +1,7 @@
 import React from 'react';
 import ScoringTable from './ScoringTable';
 import Board from './Board';
-import {VALUE, SUIT} from './Card';
+import {VALUE, getNewDeck} from './Card';
 import TextBox from './TextBox';
 import ActionButtons from './ActionButtons';
 import ScoreBoard from './ScoreBoard';
@@ -16,7 +16,7 @@ class Game extends React.Component {
             phase: PHASE.BET,
             statusText: PHASE_TEXT[PHASE.BET],
             totalChips: 1000,
-            bet: 0,
+            bet: 100,
             numberOfDoubles: 0,
             hand: [],
             deck: []
@@ -37,64 +37,8 @@ class Game extends React.Component {
         this.resetGame = this.resetGame.bind(this);
     }
 
-    // need to reset deck when trying to draw from empty deck
     initializeDeck(callback = () => {}) {
-        this.setState({deck: [
-            {suit: SUIT.SPADE, value: VALUE.ACE, selected: true, matching: false},
-            {suit: SUIT.SPADE, value: VALUE.TWO, selected: true, matching: false},
-            {suit: SUIT.SPADE, value: VALUE.THREE, selected: true, matching: false},
-            {suit: SUIT.SPADE, value: VALUE.FOUR, selected: true, matching: false},
-            {suit: SUIT.SPADE, value: VALUE.FIVE, selected: true, matching: false},
-            {suit: SUIT.SPADE, value: VALUE.SIX, selected: true, matching: false},
-            {suit: SUIT.SPADE, value: VALUE.SEVEN, selected: true, matching: false},
-            {suit: SUIT.SPADE, value: VALUE.EIGHT, selected: true, matching: false},
-            {suit: SUIT.SPADE, value: VALUE.NINE, selected: true, matching: false},
-            {suit: SUIT.SPADE, value: VALUE.TEN, selected: true, matching: false},
-            {suit: SUIT.SPADE, value: VALUE.JACK, selected: true, matching: false},
-            {suit: SUIT.SPADE, value: VALUE.QUEEN, selected: true, matching: false},
-            {suit: SUIT.SPADE, value: VALUE.KING, selected: true, matching: false},
-            {suit: SUIT.HEART, value: VALUE.ACE, selected: true, matching: false},
-            {suit: SUIT.HEART, value: VALUE.TWO, selected: true, matching: false},
-            {suit: SUIT.HEART, value: VALUE.THREE, selected: true, matching: false},
-            {suit: SUIT.HEART, value: VALUE.FOUR, selected: true, matching: false},
-            {suit: SUIT.HEART, value: VALUE.FIVE, selected: true, matching: false},
-            {suit: SUIT.HEART, value: VALUE.SIX, selected: true, matching: false},
-            {suit: SUIT.HEART, value: VALUE.SEVEN, selected: true, matching: false},
-            {suit: SUIT.HEART, value: VALUE.EIGHT, selected: true, matching: false},
-            {suit: SUIT.HEART, value: VALUE.NINE, selected: true, matching: false},
-            {suit: SUIT.HEART, value: VALUE.TEN, selected: true, matching: false},
-            {suit: SUIT.HEART, value: VALUE.JACK, selected: true, matching: false},
-            {suit: SUIT.HEART, value: VALUE.QUEEN, selected: true, matching: false},
-            {suit: SUIT.HEART, value: VALUE.KING, selected: true, matching: false},
-            {suit: SUIT.CLUB, value: VALUE.ACE, selected: true, matching: false},
-            {suit: SUIT.CLUB, value: VALUE.TWO, selected: true, matching: false},
-            {suit: SUIT.CLUB, value: VALUE.THREE, selected: true, matching: false},
-            {suit: SUIT.CLUB, value: VALUE.FOUR, selected: true, matching: false},
-            {suit: SUIT.CLUB, value: VALUE.FIVE, selected: true, matching: false},
-            {suit: SUIT.CLUB, value: VALUE.SIX, selected: true, matching: false},
-            {suit: SUIT.CLUB, value: VALUE.SEVEN, selected: true, matching: false},
-            {suit: SUIT.CLUB, value: VALUE.EIGHT, selected: true, matching: false},
-            {suit: SUIT.CLUB, value: VALUE.NINE, selected: true, matching: false},
-            {suit: SUIT.CLUB, value: VALUE.TEN, selected: true, matching: false},
-            {suit: SUIT.CLUB, value: VALUE.JACK, selected: true, matching: false},
-            {suit: SUIT.CLUB, value: VALUE.QUEEN, selected: true, matching: false},
-            {suit: SUIT.CLUB, value: VALUE.KING, selected: true, matching: false},
-            {suit: SUIT.DIAMOND, value: VALUE.ACE, selected: true, matching: false},
-            {suit: SUIT.DIAMOND, value: VALUE.TWO, selected: true, matching: false},
-            {suit: SUIT.DIAMOND, value: VALUE.THREE, selected: true, matching: false},
-            {suit: SUIT.DIAMOND, value: VALUE.FOUR, selected: true, matching: false},
-            {suit: SUIT.DIAMOND, value: VALUE.FIVE, selected: true, matching: false},
-            {suit: SUIT.DIAMOND, value: VALUE.SIX, selected: true, matching: false},
-            {suit: SUIT.DIAMOND, value: VALUE.SEVEN, selected: true, matching: false},
-            {suit: SUIT.DIAMOND, value: VALUE.EIGHT, selected: true, matching: false},
-            {suit: SUIT.DIAMOND, value: VALUE.NINE, selected: true, matching: false},
-            {suit: SUIT.DIAMOND, value: VALUE.TEN, selected: true, matching: false},
-            {suit: SUIT.DIAMOND, value: VALUE.JACK, selected: true, matching: false},
-            {suit: SUIT.DIAMOND, value: VALUE.QUEEN, selected: true, matching: false},
-            {suit: SUIT.DIAMOND, value: VALUE.KING, selected: true, matching: false},
-            {suit: SUIT.JOKER, value: VALUE.JOKER, selected: true, matching: false},
-            {suit: SUIT.JOKER, value: VALUE.JOKER, selected: true, matching: false}
-        ]}, callback);
+        this.setState({deck: getNewDeck()}, callback);
     }
 
     initializeHand(callback = () => {}) {
@@ -105,7 +49,6 @@ class Game extends React.Component {
         }, callback);
     }
      
-
     pickCardsFromDeck(deck, number) {
         let drawnCards = [];
         for (let i = 0; i < number; i++) {
@@ -196,7 +139,7 @@ class Game extends React.Component {
             phase: PHASE.BET,
             statusText: PHASE_TEXT[PHASE.BET],
             totalChips: 1000,
-            bet: 0,
+            bet: 100,
             numberOfDoubles: 0,
             hand: [],
             deck: []
@@ -289,20 +232,16 @@ class Game extends React.Component {
                     handleCardClick={this.handleCardClick}
                 />
                 <div className="bottom">
-                   
-                        <TextBox statusText={this.state.statusText}/>
-                   
-                        <ActionButtons 
-                            phase={this.state.phase}
-                            betPhase={this.betPhase}
-                            swapPhase={this.swapPhase}
-                            evaluationPhase={this.evaluationPhase}
-                            doublePhase={this.doublePhase}
-                            chooseLowHigh={this.chooseLowHigh}
-                            resetGame={this.resetGame}
-                        />
-                   
-                        
+                    <TextBox statusText={this.state.statusText}/>
+                    <ActionButtons 
+                        phase={this.state.phase}
+                        betPhase={this.betPhase}
+                        swapPhase={this.swapPhase}
+                        evaluationPhase={this.evaluationPhase}
+                        doublePhase={this.doublePhase}
+                        chooseLowHigh={this.chooseLowHigh}
+                        resetGame={this.resetGame}
+                    />     
                 </div>
             </div>
         );
